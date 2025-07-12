@@ -3,12 +3,13 @@ Empowering farmers with real-time, localized, and intelligent farming decisions 
 
 ## Installation
 
-### Clone the repo
+To get started with the project locally:
+
+1. **Clone the repository**
+```bash
 git clone https://github.com/abhishekraooo/smart_crop_management.git
 cd smart_crop_management
 
-### Install dependencies
 flutter pub get
 
-### Run on emulator/device
 flutter run
