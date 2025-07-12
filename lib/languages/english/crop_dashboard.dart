@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hacksprint_mandya/languages/english/chatbot.dart';
 import 'package:hacksprint_mandya/pages/fertilizer.dart';
 import 'package:hacksprint_mandya/utils/model.dart';
 import 'package:hacksprint_mandya/pages/byproduct.dart';
@@ -214,6 +215,17 @@ class _HomeScreenState extends State<HomeScreen>
         title: null,
         backgroundColor: Colors.green.shade100,
         elevation: 0,
+        actions: [
+          IconButton(
+            icon: FaIcon(FontAwesomeIcons.robot), // Chatbot icon
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChatScreen()),
+              );
+            },
+          ),
+        ],
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {

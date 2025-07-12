@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-
-
 class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
@@ -30,11 +28,12 @@ class _ChatScreenState extends State<ChatScreen> {
       headers: {
         'Authorization': 'Bearer $apiKey',
         'Content-Type': 'application/json',
-        'Cohere-Version': '2022-12-06'
+        'Cohere-Version': '2022-12-06',
       },
       body: jsonEncode({
         "model": "command-r-plus", // You can also try "command-r-plus"
-        "prompt": "You are an agricultural assistant. Answer the following query:\n\n$userMessage",
+        "prompt":
+            "You are an agricultural assistant. Answer the following query:\n\n$userMessage",
         "max_tokens": 400,
         "temperature": 0.7,
       }),
@@ -74,10 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("AgriBot 🌱"),
-        backgroundColor: Colors.green,
-      ),
+      appBar: AppBar(title: Text("AgriBot 🌱"), backgroundColor: Colors.green),
       body: Column(
         children: [
           Expanded(
@@ -88,14 +84,14 @@ class _ChatScreenState extends State<ChatScreen> {
                 return Container(
                   margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                   alignment:
-                      message.isUser ? Alignment.centerRight : Alignment.centerLeft,
+                      message.isUser
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
                   child: Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
                     decoration: BoxDecoration(
-                      color: message.isUser
-                          ? Colors.green[100]
-                          : Colors.grey[300],
+                      color:
+                          message.isUser ? Colors.green[100] : Colors.grey[300],
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(message.text),
